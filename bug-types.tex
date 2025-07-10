@@ -18,10 +18,11 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[10pt,a4paper,twoside]{article} % 10pt font size, A4 paper and two-sided margins
+% 10pt font size, A4 paper, landscape orientation
+\documentclass[10pt,a4paper,landscape]{article}
 
-\usepackage[top=3.5cm,bottom=3.5cm,left=3.7cm,right=4.7cm,columnsep=30pt]{geometry} % Document margins and spacings
-\usepackage{pdflscape}
+% doc margins and spacings
+\usepackage[top=3.0cm,bottom=3.0cm,left=3.2cm,right=3.2cm]{geometry}
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
@@ -30,87 +31,81 @@
 
 \usepackage{microtype} % Improves spacing
 
-\usepackage[bf,sf]{titlesec} % Modify section titles: bold, sans-serif
+% Modify section titles: bold, sans-serif and centered
+\usepackage[bf,sf,center]{titlesec}
 
 % @brief Word definition in a dictionary
 % @param #1 Word
 % @param #2 Sillable division
-% @param #3 Word type (noun, verb, ...)
-% @param #4 Definition
+% @param #3 Definition
 \newcommand{\entry}[4]{
-    \textbf{#1}\ {(#2)}\ \textit{#3}
-{
+    \textbf{#1}\ {(#2)}
     \begin{quote}
-        #4
+        {#3}
     \end{quote}
-}}
+}
 
 %----------------------------------------------------------------------------------------
 
 \begin{document}
 
-%----------------------------------------------------------------------------------------
-%	SECTION A
-%----------------------------------------------------------------------------------------
-
 \pagenumbering{gobble} % turn off page numbers
-
-\begin{landscape}
 
 \section*{Bug Types\footnote{Inspired from \texttt{https://en.wikipedia.org/wiki/Heisenbug}}}
 
+\entry{Bohrbug}{bohr-bug}
+{
+    \emph{A "good, solid bug".} \\
+    Like the deterministic Bohr atom model, it does not change its
+    behavior and is relatively easily detected.
+}
 
-    \entry{Bohrbug}{bohr-bug}{Noun}
-    {
-        A "good, solid bug".
-        Like the deterministic Bohr atom model, it does not change its
-        behavior and is relatively easily detected.
-    }
+\entry{Heisenbug}{hei-sen-bug}
+{
+    A software bug that seems to disappear or alter its behavior when one
+    attempts to study it. \\
+    The term is a pun on the name of Werner Heisenberg, the physicist who
+    first asserted the observer effect of quantum mechanics, which states
+    that the act of observing a system inevitably alters its state.
+}
 
-    \entry{Heisenbug}{hei-sen-bug}{Noun}
-    {
-        A software bug that seems to disappear or alter its behavior when one
-        attempts to study it. \\
-        The term is a pun on the name of Werner Heisenberg, the physicist who
-        first asserted the observer effect of quantum mechanics, which states
-        that the act of observing a system inevitably alters its state.
-    }
+\entry{Higgs-bugson}{higgs-bug-son}
+{
+    \emph{Named after the Higgs boson particle.}
+    \begin{itemize}
+        \item A bug that is predicted to exist based upon other observed
+            conditions (most commonly, vaguely related log entries and
+            anecdotal user reports) but is difficult, if not impossible, to
+            artificially reproduce in a development or test environment.
+        \item A bug that is obvious in the code (mathematically proven),
+            but which cannot be seen in execution (yet difficult or
+            impossible to actually find in existence).
+    \end{itemize}
+}
 
-    \entry{Higgs-bugson}{higgs-bug-son}{Noun}
-    {
-        \emph{Named after the Higgs boson particle.}
-        A bug that is predicted to exist based upon other observed conditions
-        (most commonly, vaguely related log entries and anecdotal user reports)
-        but is difficult, if not impossible, to artificially reproduce in a
-        development or test environment. \\
-        $\bullet$ A bug that is obvious in the code (mathematically proven), but which
-        cannot be seen in execution (yet difficult or impossible to actually
-        find in existence).
-    }
+\entry{Hindenbug}{hin-den-bug}
+{
+    \emph{Named after the Hindenburg disaster.} \\
+    It's a bug with catastrophic behavior.
+}
 
-    \entry{Hindenbug}{hin-den-bug}{Noun}
-    {
-        \emph{Named after the Hindenburg disaster.}
-        It's a bug with catastrophic behavior.
-    }
+\entry{Mandelbug}{man-del-bug}
+{
+    \emph{Named after Benoît Mandelbrot's fractal.}
+    \begin{itemize}
+        \item A bug whose causes are so complex it defies repair, or makes
+            its behavior appear chaotic or even non-deterministic.
+        \item A bug that exhibits fractal behavior (that is,
+            self-similarity) by revealing more bugs (the deeper a developer
+            goes into the code to fix it the more bugs they find).
+    \end{itemize}
+}
 
-    \entry{Mandelbug}{man-del-bug}{Noun}
-    {
-        \emph{Named after Benoît Mandelbrot's fractal.}
-        A bug whose causes are so complex it defies repair, or makes its
-        behavior appear chaotic or even non-deterministic. \\
-        $\bullet$ A bug that exhibits fractal behavior (that is, self-similarity) by
-        revealing more bugs (the deeper a developer goes into the code to fix
-        it the more bugs they find).
-    }
-
-    \entry{Schrödinbug}{schrö-din-bug}{Noun}
-    {
-        \emph{Named after Erwin Schrödinger and his thought experiment.}
-        A bug that manifests itself in running software after a programmer
-        notices that the code should never have worked in the first place.
-    }
-
-\end{landscape}
+\entry{Schrödinbug}{schrö-din-bug}
+{
+    \emph{Named after Erwin Schrödinger and his thought experiment.} \\
+    A bug that manifests itself in running software after a programmer
+    notices that the code should never have worked in the first place.
+}
 
 \end{document}
